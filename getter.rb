@@ -27,7 +27,7 @@ def extract_uris
   end
   
   doc_uris.flatten!
-  return doc_uris
+  return doc_uris.uniq!
 end
 
 
@@ -35,11 +35,12 @@ def get_uris
   if File.exists?("uris.yaml")
     loaded_uris = open("uris.yaml") { |f| YAML.load(f) }
     extracted_uris = extract_uris
-    if loaded_uris.size == extracted_uris.size
-      puts "Nema novih dokumenata.\n\n"
+    if loaded_uris == extracted_uris
+      puts "\nNema novih dokumenata.\n\n"
     else
       difference = extracted_uris - loaded_uris
       puts "\nNađeno #{difference.size} dokumenata.\n\n"
+      serialize(extracted_uris)
       return difference
     end
   
