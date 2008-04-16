@@ -34,7 +34,7 @@ def extract_uris
   
   # ne želimo ugniježdena polja i duplikate
   doc_uris.flatten!
-  return doc_uris.uniq!
+  doc_uris.uniq!
 end
 
 
@@ -51,7 +51,7 @@ def get_uris
       difference = extracted_uris - loaded_uris
       puts "\nBroj nađenih dokumenata: #{difference.size}\n\n"
       serialize(extracted_uris, URIS_FILE)
-      return difference
+      difference
     end
   
   # ako nema lokalnih URL-ova, pokreni novu ekstrakciju i serijaliziraj
@@ -60,7 +60,7 @@ def get_uris
     extraction = extract_uris
     puts "\nBroj nađenih dokumenata: #{extraction.size}\n\n"
     serialize(extraction, URIS_FILE)
-    return extraction
+    extraction
   end
 end
 

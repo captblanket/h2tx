@@ -2,8 +2,9 @@ require "rubygems"
 require 'tidy'
 require "iconv"
 
+
 Tidy.path = 'tidy/libtidy.dylib'
-@html = open("input_test_2005.htm") { |line| line.read } # simulacija gettera
+@html = open("input_test_2008.htm") { |line| line.read } # simulacija gettera
 
 def convert_to_utf8(input)
   input_encoding = "windows-1250"
@@ -24,7 +25,7 @@ def conform_to_tei
   tei = tidy_html(@html)
   tei.gsub!("&nbsp;", "")
   tei.gsub!(/<(\w+)\s+[^>]*>/, '<\1>') # makni sve atribute iz tagova
-  tei.gsub!(/<table>.*?<\/table>/m, '') # makni sve tablice i njihov sadržaj 
+  tei.gsub!(/<(table|style)>.*?<\/(table|style)>/m, '') # makni sve tablice i njihov sadržaj 
   tei.gsub!(/<\/?(div|sup)>/, '') # makni div-ove i sup-ove
   tei.gsub!(/<(\/?)(h\d|center|font)>/, '<\1p>') # headinge i center zamijeni s paragrafima
   tei.gsub!("<br>", "<lb/>")
@@ -38,7 +39,15 @@ def conform_to_tei
   tei.gsub!(/\n(\n)+/, "\n") # makni sve newlineove osim prvog
   tei.squeeze!(" ")
   tei.strip!
+  
+  date_and_title = tei.scan(%r{<title>\s*?\d+\s+?(\d{1,2}\.\d{1,2}\.\d{4})\.?([^>]*)</title>}).flatten
+  date = date_and_title[0] + "."
+  title = date_and_title[1].strip
+  
+  return tei, date, title
 end
 
-xml = conform_to_tei
+xml = conform_to_tei[0]
 open("output_test.xml", "w") { |line| line.puts xml }
+puts conform_to_tei[2]
+puts conform_to_tei[1]
