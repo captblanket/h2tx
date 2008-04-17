@@ -6,7 +6,7 @@ require "iconv"
 Tidy.path = 'tidy/libtidy.dylib'
 
 # simulacija gettera
-@test_sources = ["input_test_2000.htm", "input_test_2004.htm", "input_test_2005.htm", "input_test_2008.htm"]
+test_sources = ["input_test_2000.htm", "input_test_2004.htm", "input_test_2005.htm", "input_test_2008.htm"]
 
 def convert_to_utf8(input)
   input_encoding = "windows-1250"
@@ -37,6 +37,7 @@ def conform_to_tei(input)
   tei.gsub!(/<p>\s*?<\/p>/, "") # makni prazne paragrafe
   tei.gsub!("…", "...")
   tei.gsub!("\302\255", "") # čudan znak koji ne postoji?!
+  tei.gsub!(/(<body>\s*?<p>.*?<\/p>)\s*?<p>.*?<\/p>/m, '\1') # makni ID
   tei.gsub!(/\n(\n)+/, "\n") # makni sve newlineove osim prvog
   tei.squeeze!(" ")
   
@@ -62,7 +63,7 @@ def to_ascii # http://www.jroller.com/obie/entry/fix_that_tranny_add_to
   converter.iconv(self).unpack('U*').select{ |cp| cp < 127 }.pack('U*')
 end
 
-@test_sources.each do |source|
+test_sources.each do |source|
   loaded_html = open("#{source}") { |line| line.read }
   html_utf8 = convert_to_utf8(loaded_html)
   xml = tidy_html(html_utf8)
