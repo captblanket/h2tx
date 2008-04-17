@@ -56,12 +56,18 @@ def conform_to_tei(input)
   return tei, @date, @title, @author
 end
 
+public
+def to_ascii # http://www.jroller.com/obie/entry/fix_that_tranny_add_to
+  converter = Iconv.new('ASCII//IGNORE//TRANSLIT', 'UTF-8') 
+  converter.iconv(self).unpack('U*').select{ |cp| cp < 127 }.pack('U*')
+end
+
 @test_sources.each do |source|
   loaded_html = open("#{source}") { |line| line.read }
   html_utf8 = convert_to_utf8(loaded_html)
   xml = tidy_html(html_utf8)
   tei_xml = conform_to_tei(xml)[0]
-  open("output_test/#{@title}.xml", "w") { |line| line.puts tei_xml }
+  open("output_test/#{@title.to_ascii}.xml", "w") { |line| line.puts tei_xml }
   puts @title
   puts @date
   puts @author
