@@ -3,3 +3,4 @@ uris.yml
 camping
 tidy
 *_test*
+error_log*

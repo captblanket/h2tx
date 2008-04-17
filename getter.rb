@@ -63,5 +63,3 @@ def get_uris
     extraction
   end
 end
-
-get_uris

@@ -2,16 +2,21 @@ require "rubygems"
 require 'tidy'
 require "iconv"
 
+Tidy.path = '/usr/lib/libtidy.dylib'
 
-Tidy.path = 'tidy/libtidy.dylib'
-
-# simulacija gettera
-test_sources = ["input_test_2000.htm", "input_test_2004.htm", "input_test_2005.htm", "input_test_2008.htm"]
+def dump_error(error)
+  puts error
+  open("error_log.txt", "a") { |log| log.puts(error)}
+end
 
 def convert_to_utf8(input)
   input_encoding = "windows-1250"
   output_encoding = "utf-8"
-  converted = Iconv.new(output_encoding, input_encoding).iconv(input)  
+  begin    
+    converted = Iconv.new(output_encoding, input_encoding).iconv(input)  
+  rescue Iconv::IllegalSequence => e
+    dump_error("#{@year}/#{@id}: problem s konverzijom u UTF-8\n")
+  end
 end
 
 def tidy_html(input)
@@ -27,7 +32,7 @@ def conform_to_tei(input)
   tei.gsub!("&nbsp;", "")
   tei.gsub!(/<(\w+)\s+[^>]*>/, '<\1>') # makni sve atribute iz tagova
   tei.gsub!(/<(table|style)>.*?<\/(table|style)>/m, '') # makni sve tablice i njihov sadržaj 
-  tei.gsub!(/<\/?(div|sup|html|head|u)>/, '') # makni div, sup, html, head, u ali ostavi sadržaj
+  tei.gsub!(/<\/?(div|sup|html|head|u|span)>/, '') # makni div, sup, html, head, u ali ostavi sadržaj
   tei.gsub!(/<(\/?)(h\d|center|font)>/, '<\1p>') # headinge i center zamijeni s paragrafima
   tei.gsub!("<br>", "<lb/>")
   tei.gsub!("<b>", '<hi rend="bold">')
@@ -42,17 +47,28 @@ def conform_to_tei(input)
   tei.squeeze!(" ")
   
   # izvuci datum i naziv
-  date_and_title = tei.scan(%r{<title>\s*?\d+\s+?(\d{1,2}\.\d{1,2}\.\d{4})\.?([^>]*)</title>}).flatten
-  @date = date_and_title[0] + "."
-  @title = date_and_title[1].strip
+  begin
+    date_and_title = tei.scan(%r{<title>\s*?\d+\s+?(\d{1,2}\.\d{1,2}\.\d{4})\.?([^>]*)</title>}).flatten
+    @date = date_and_title[0] + "."
+    @title = date_and_title[1].strip
+  rescue NoMethodError => e
+    @date = "___DATUM_NEPOZNAT___"
+    @title = "___NAZIV_NEPOZNAT___"
+    dump_error("#{@year}/#{@id}: datum i naziv nepoznati\n")
+  end
   
   # sad makni i sam title
   tei.gsub!(/<title>.*?<\/title>/m, '')
   tei.strip!
   
   # izvuci autora
-  author_scan = tei.scan(%r{<body>\s*?<p>(.*?)</p>}).flatten
-  @author = author_scan[0].strip
+  begin
+    author_scan = tei.scan(%r{<body>\s*?<p>(.*?)</p>}).flatten
+    @author = author_scan[0].strip
+  rescue NoMethodError => e
+    @author = "___AUTOR_NEPOZNAT___"
+    dump_error("#{@year}/#{@id}: autor nepoznat\n")
+  end
   
   return tei, @date, @title, @author
 end
@@ -61,16 +77,4 @@ public
 def to_ascii # http://www.jroller.com/obie/entry/fix_that_tranny_add_to
   converter = Iconv.new('ASCII//IGNORE//TRANSLIT', 'UTF-8') 
   converter.iconv(self).unpack('U*').select{ |cp| cp < 127 }.pack('U*')
-end
-
-test_sources.each do |source|
-  loaded_html = open("#{source}") { |line| line.read }
-  html_utf8 = convert_to_utf8(loaded_html)
-  xml = tidy_html(html_utf8)
-  tei_xml = conform_to_tei(xml)[0]
-  open("output_test/#{@title.to_ascii}.xml", "w") { |line| line.puts tei_xml }
-  puts @title
-  puts @date
-  puts @author
-  puts
 end
