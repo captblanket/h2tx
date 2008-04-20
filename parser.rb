@@ -7,6 +7,7 @@ Tidy.path = '/usr/lib/libtidy.dylib'
 def dump_error(error)
   puts error = "#{@year}/#{@id}: " + error
   open("error_log.txt", "a") { |log| log.puts(error)}
+  # TODO dodaj timestamp
 end
 
 def convert_to_utf8(input)
