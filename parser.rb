@@ -69,7 +69,7 @@ def conform_to_tei(input)
     @author = author_scan[0]
     raise NoMethodError if @author =~ /\d/ # provjeri da nije broj
     @author.gsub!(/<.+?\/?>/m, "") # ne želimo tagove...
-    @author.gsub!("\n", ' ') # ... niti newlineove
+    @author.gsub!("\n", ' ') # ...niti newlineove
     @author.gsub!("DrŽ", "Drž") # KLUDGE: ne znam zašto se ovo dešava
     @author.strip!
   rescue NoMethodError => e

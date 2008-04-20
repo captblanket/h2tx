@@ -5,3 +5,4 @@ tidy
 *_test*
 error_log*
 *.xml
+output*

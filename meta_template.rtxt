@@ -1,0 +1,6 @@
+autor: <%= @author %>
+djelo: <%= @title %>
+izdavac: Narodne novine
+godina: <%= @year %>.
+mjesto: Zagreb
+phil: ok
