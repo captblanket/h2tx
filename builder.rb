@@ -5,7 +5,18 @@ require "erb"
 # simulacije gettera
 # uris_to_parse = deserialize(URIS_FILE)
 # uris_to_parse = ["input_test_2000.htm"]
-uris_to_parse = ["http://www.nn.hr/clanci/sluzbeno/2005/0793.htm"]
+
+# pokretanje bez argumenta
+if ARGV[0] == nil
+  uris_to_parse = ["http://www.nn.hr/clanci/sluzbeno/2005/0793.htm"]
+else
+  # s argumentom; sintaksa YYYY/IDID
+  if (ARGV[0] =~ /^\d{4}\/\d{4}$/) == nil
+    raise "Pogrešan argument. Ispravno je: YYYY/IDID"
+  else
+    uris_to_parse = ["http://www.nn.hr/clanci/sluzbeno/#{ARGV[0]}.htm"]
+  end
+end
 
 puts "Počinjem parsiranje"
 uris_to_parse.each do |source|
