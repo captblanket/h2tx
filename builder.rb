@@ -7,7 +7,7 @@ require "erb"
 #                 "input_test_2005.htm", "input_test_2006.htm", "input_test_2007.htm", "input_test_2008.htm"]
 # uris_to_parse = deserialize(URIS_FILE)
 # uris_to_parse = ["input_test_2000.htm"]
-uris_to_parse = ["http://www.nn.hr/clanci/sluzbeno/2007/0360.htm"]
+uris_to_parse = ["http://www.nn.hr/clanci/sluzbeno/2005/0793.htm"]
 
 puts "Počinjem parsiranje"
 uris_to_parse.each do |source|

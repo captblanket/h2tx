@@ -4,3 +4,4 @@ camping
 tidy
 *_test*
 error_log*
+*.xml
