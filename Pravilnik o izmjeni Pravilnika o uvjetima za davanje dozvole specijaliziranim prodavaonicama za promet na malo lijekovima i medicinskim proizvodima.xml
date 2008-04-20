@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P5//DTD Main Document Type//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.prose 'INCLUDE'>
+<!ENTITY % TEI.linking 'INCLUDE'>
+<!ENTITY % TEI.figures 'INCLUDE'>
+<!ENTITY % TEI.analysis 'INCLUDE'>
+<!ENTITY % TEI.XML 'INCLUDE'>
+<!ENTITY % ISOlat1 SYSTEM 'http://www.tei-c.org/Entity_Sets/Unicode/iso-lat1.ent'>
+%ISOlat1;
+<!ENTITY % ISOlat2 SYSTEM 'http://www.tei-c.org/Entity_Sets/Unicode/iso-lat2.ent'>
+%ISOlat2;
+<!ENTITY % ISOnum SYSTEM 'http://www.tei-c.org/Entity_Sets/Unicode/iso-num.ent'>
+%ISOnum;
+<!ENTITY % ISOpub SYSTEM 'http://www.tei-c.org/Entity_Sets/Unicode/iso-pub.ent'>
+%ISOpub;
+]>
+<TEI.2 lang="hr-HR">
+<teiHeader>
+<fileDesc>
+<titleStmt>
+<title>Pravilnik o izmjeni Pravilnika o uvjetima za davanje dozvole specijaliziranim prodavaonicama za promet na malo lijekovima i medicinskim proizvodima</title>
+<author>MINISTARSTVO ZDRAVSTVA
+<lb/>I SOCIJANE SKRBI</author>
+</titleStmt>
+<editionStmt>
+<edition>
+<date>12.1.2007.</date>
+</edition>
+</editionStmt>
+<publicationStmt>
+<authority/>
+<address/>
+</publicationStmt>
+<sourceDesc>
+<p>Brankov diplomski</p>
+</sourceDesc>
+</fileDesc>
+<profileDesc>
+<langUsage default="NO">
+<language id="hr-HR">ISO hr-HR</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change>
+<date/>
+<respStmt>
+<name/>
+</respStmt>
+<item>revision</item>
+</change>
+</revisionDesc>
+</teiHeader>
+<text>
+<body>
+<p>MINISTARSTVO ZDRAVSTVA
+<lb/>I SOCIJANE SKRBI</p>
+<p>
+<hi rend="bold">275</hi>
+</p>
+<p>Na temelju članka 49. stavka 2. i članka 112. Zakona o lijekovima i medicinskim proizvodima (»Narodne novine« broj 121/03 i 177/04) ministar zdravstva i socijalne skrbi donosi</p>
+<p>PRAVILNIK</p>
+<p>O IZMJENI PRAVILNIKA O UVJETIMA ZA DAVANJE DOZVOLE SPECIJALIZIRANIM PRODAVAONICAMA ZA PROMET NA MALO LIJEKOVIMA I MEDICINSKIM PROIZVODIMA</p>
+<p>Članak 1.</p>
+<p>U Pravilniku o uvjetima za davanje dozvole specijaliziranim prodavaonicama za promet na malo lijekovima i medicinskim proizvodima (»Narodne novine« broj 29/05 i 81/06) u članku 12. riječ: »dvije« zamjenjuje se riječju: »pet«.</p>
+<p>Članak 2.</p>
+<p>Ovaj Pravilnik stupa na snagu osmoga dana od dana objave u »Narodnim novinama«.
+<lb/>
+<lb/>Klasa: 011-02/07-01/02
+<lb/>Urbroj: 534-07-01/4-07-1
+<lb/>Zagreb, 5. siječnja 2007.</p>
+<p>Ministar
+<lb/>
+<hi rend="bold">doc. dr. sc. Neven Ljubičić</hi>, v. r.</p>
+</body>
+</text>
+</TEI.2>

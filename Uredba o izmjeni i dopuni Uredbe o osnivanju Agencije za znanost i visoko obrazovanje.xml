@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P5//DTD Main Document Type//EN" "http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+<!ENTITY % TEI.prose 'INCLUDE'>
+<!ENTITY % TEI.linking 'INCLUDE'>
+<!ENTITY % TEI.figures 'INCLUDE'>
+<!ENTITY % TEI.analysis 'INCLUDE'>
+<!ENTITY % TEI.XML 'INCLUDE'>
+<!ENTITY % ISOlat1 SYSTEM 'http://www.tei-c.org/Entity_Sets/Unicode/iso-lat1.ent'>
+%ISOlat1;
+<!ENTITY % ISOlat2 SYSTEM 'http://www.tei-c.org/Entity_Sets/Unicode/iso-lat2.ent'>
+%ISOlat2;
+<!ENTITY % ISOnum SYSTEM 'http://www.tei-c.org/Entity_Sets/Unicode/iso-num.ent'>
+%ISOnum;
+<!ENTITY % ISOpub SYSTEM 'http://www.tei-c.org/Entity_Sets/Unicode/iso-pub.ent'>
+%ISOpub;
+]>
+<TEI.2 lang="hr-HR">
+<teiHeader>
+<fileDesc>
+<titleStmt>
+<title>Uredba o izmjeni i dopuni Uredbe o osnivanju Agencije za znanost i visoko obrazovanje</title>
+<author>Vlada Republike Hrvatske</author>
+</titleStmt>
+<editionStmt>
+<edition>
+<date>22.1.2007.</date>
+</edition>
+</editionStmt>
+<publicationStmt>
+<authority/>
+<address/>
+</publicationStmt>
+<sourceDesc>
+<p>Brankov diplomski</p>
+</sourceDesc>
+</fileDesc>
+<profileDesc>
+<langUsage default="NO">
+<language id="hr-HR">ISO hr-HR</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+<change>
+<date/>
+<respStmt>
+<name/>
+</respStmt>
+<item>revision</item>
+</change>
+</revisionDesc>
+</teiHeader>
+<text>
+<body>
+<p>
+Vlada Republike Hrvatske
+</p>
+<p>
+<hi rend="bold">360</hi>
+</p>
+<p>Na temelju članka 15. stavka 2. Zakona o znanstvenoj djelatnosti i visokom obrazovanju (»Narodne novine«, br. 123/2003, 105/2004 i 174/2004) i članka 12. stavka 2. Zakona o ustanovama (»Narodne novine«, br. 76/93, 29/97 i 47/99), Vlada Republike Hrvatske je na sjednici održanoj 18. siječnja 2007. godine donijela</p>
+<p>UREDBU</p>
+<p>O IZMJENI I DOPUNI UREDBE O OSNIVANJU AGENCIJE ZA ZNANOST I VISOKO OBRAZOVANJE</p>
+<p>Članak 1.</p>
+<p>U Uredbi o osnivanju Agencije za znanost i visoko obrazovanje (»Narodne novine«, broj 101/2004), u članku 7. stavci 1. i 2. mijenjaju se i glase:
+<lb/>»(1) Agencijom upravlja Upravno vijeće, kojeg čine predsjednik i osam članova.
+<lb/>(2) Predsjednika i članove Upravnog vijeća imenuje Vlada Republike Hrvatske na razdoblje od četiri godine, osim predstavnika studenata kojeg imenuje na godinu dana.«.
+<lb/>Iza stavka 2. dodaje se novi stavak 3. koji glasi:
+<lb/>»(3) Vlada Republike Hrvatske imenuje po dva člana iz reda članova nacionalnih vijeća, na prijedlog Nacionalnog vijeća za znanost, odnosno Nacionalnog vijeća za visoko obrazovanje, jednog predstavnika studenata, na prijedlog studentskih zborova u Republici Hrvatskoj, a tri člana, od kojih je jedan iz redova istaknutih znanstvenika iz inozemstva, te predsjednika Upravnog vijeća, na prijedlog ministra znanosti, obrazovanja i športa.«.
+<lb/>Dosadašnji stavci 3. i 4. postaju stavci 4. i 5.</p>
+<p>Članak 2.</p>
+<p>Agencija za znanost i visoko obrazovanje uskladit će Statut Agencije s ovom Uredbom u roku od 30 dana od dana njezina stupanja na snagu.
+<lb/>Vlada Republike Hrvatske imenovat će Upravno vijeće, sukladno članku 1. ove Uredbe, u roku od 60 dana od dana stupanja na snagu ove Uredbe.</p>
+<p>Članak 3.</p>
+<p>Ova Uredba stupa na snagu osmog dana od dana objave u »Narodnim novinama«.
+<lb/>
+<lb/>Klasa: 023-03/04-01/33
+<lb/>Urbroj: 5030108-07-1
+<lb/>Zagreb, 18. siječnja 2007.</p>
+<p>Potpredsjednica Vlade
+<lb/>i ministrica obitelji, branitelja i
+<lb/>međugeneracijske solidarnosti
+<lb/>
+<hi rend="bold">Jadranka Kosor, dipl. iur</hi>., v. r.</p>
+</body>
+</text>
+</TEI.2>
