@@ -1,8 +1,7 @@
 .DS_Store
 uris.yml
-camping
-tidy
 *_test*
 error_log*
 *.xml
 output*
+vendor/*

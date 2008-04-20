@@ -1,7 +1,12 @@
-require "rubygems"
-require 'tidy'
+# voodoo magija koja dodaje gemove iz vendor direktorija na load path
+Dir[File.dirname(__FILE__) + "/vendor/*"].each do |l|
+  $:.unshift "#{File.expand_path(l)}/lib"
+end
+
+require "tidy"
 require "iconv"
 require "date"
+
 
 Tidy.path = '/usr/lib/libtidy.dylib'
 

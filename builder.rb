@@ -6,6 +6,10 @@ require "erb"
 # uris_to_parse = deserialize(URIS_FILE)
 # uris_to_parse = ["input_test_2000.htm"]
 
+puts "\nH2TX - HTML to TEI XML"
+puts "http://github.com/captblanket/h2tx/"
+puts "---------------------------------------------\n\n"
+
 # pokretanje bez argumenta
 if ARGV[0] == nil
   uris_to_parse = ["http://www.nn.hr/clanci/sluzbeno/2005/0793.htm"]
@@ -52,6 +56,7 @@ uris_to_parse.each do |source|
   puts @title
   puts @date
   puts @author
+  puts
   
   # spremi dokumente lokalno
   begin
